@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x, 18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -33,7 +33,7 @@ jobs:
           # Artifact name
           name: artifact # optional, default is artifact
           # A file, directory or wildcard pattern that describes what to upload
-          path: /dist
+          path: dist
           # The desired behavior if no files are found using the provided path.
           if-no-files-found: warn # optional, default is warn
           # Duration after which artifact will expire in days. 0 means using default retention.
