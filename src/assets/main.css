@@ -5,6 +5,9 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 a,
