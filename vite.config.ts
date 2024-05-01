@@ -15,6 +15,9 @@ export default defineConfig({
       input: ['src/main.ts', './index.html']
     }
   },
+  optimizeDeps: {
+    exclude: ['vue3-carousel']
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
