@@ -1,29 +1,43 @@
 
 <template>
+  <div class="input-title-container">
+    <input type="text" name="title" id="input-title" v-model="title">
+  </div>
   <div class="carousel-container">
-  <carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
-    <slide v-for="slide in 9" :key="slide">
-      <div class="carousel__item"> <img :src="`images/${slide}.png`" alt=""></div>
-    </slide>
-  </carousel>
-
-  <carousel
+    <carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
+      <slide v-for="slide in 9" :key="slide">
+        <div class="carousel__item">
+          <h1>
+            {{ title }}
+          </h1>
+          <img :src="`images/${slide}.png`" alt="">
+          <span class="content">
+            {{ content }}
+          </span>
+        </div>
+      </slide>
+    </carousel>
+    
+    <carousel
     id="thumbnails"
     :items-to-show="4"
     :wrap-around="true"
     v-model="currentSlide"
     ref="carousel"
-  >
+    >
     <slide v-for="slide in 9" :key="slide">
       <div class="carousel__item" @click="slideTo(slide - 1)">
         
         <img :src="`images/${slide}.png`" alt="">
-      
+        
       </div>
     </slide>
   </carousel>
+</div>
+<div class="input-content-container">
+    <input type="text" name="content" id="input-content" v-model="content">
   </div>
- 
+
 </template>
 
 <script setup lang="ts">
@@ -32,6 +46,8 @@ import 'vue3-carousel/dist/carousel.css';
 import { ref } from 'vue';
 
 const currentSlide = ref<number>(0);
+const title = ref<string>('');
+const content = ref<string>('');
 
 function slideTo(slide : number) {
   currentSlide.value = slide;
@@ -40,15 +56,30 @@ function slideTo(slide : number) {
 </script>
 
 <style scoped>
+.input-title-container{
+  margin: 10px 0;
+  input {
+    height: 30px;
+    border-radius: 5px;
+  }
+}
+
+.input-content-container{
+  margin: 10px 0;
+  input {
+    height: 30px;
+    border-radius: 5px;
+  }
+}
 .carousel-container {
-  max-height: 500px;
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .carousel {
   width: 30%;
+  min-width: 300px;
 }
 .carousel__slide {
   aspect-ratio: 66/88;
@@ -65,6 +96,19 @@ function slideTo(slide : number) {
   align-items: center;
   img {
     width: 100%;
+  }
+
+  h1 {
+    position: absolute;
+    top : 5px;
+  }
+  .content {
+    position: absolute;
+    bottom : 7%;
+    height: 20%;
+    color: black;
+    max-width: 60%;
+
   }
 }
 

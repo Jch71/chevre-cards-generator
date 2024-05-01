@@ -30,7 +30,7 @@ a,
   #app {
     display: flex;
     justify-content: center;
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     padding: 0 2rem;
   }
 }
