@@ -59,6 +59,7 @@ function slideTo(slide : number) {
 
 <style scoped>
 .input-title-container{
+  text-align: center;
   margin: 10px 0;
   input {
     height: 30px;
@@ -67,6 +68,7 @@ function slideTo(slide : number) {
 }
 
 .input-content-container{
+  text-align: center;
   margin: 10px 0;
   input {
     height: 30px;
