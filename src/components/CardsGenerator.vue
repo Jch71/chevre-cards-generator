@@ -1,6 +1,7 @@
 
 <template>
   <div class="input-title-container">
+    <label for="input-title">Titre</label>
     <input type="text" name="title" id="input-title" v-model="title">
   </div>
   <div class="carousel-container">
@@ -35,6 +36,7 @@
   </carousel>
 </div>
 <div class="input-content-container">
+    <label for="input-content">Contenu</label>
     <input type="text" name="content" id="input-content" v-model="content">
   </div>
 
@@ -84,6 +86,14 @@ function slideTo(slide : number) {
 .carousel__slide {
   aspect-ratio: 66/88;
 }
+
+#thumbnails {
+  img {
+    cursor: pointer;
+  }
+  
+}
+
 .carousel__item {
   width: 100%;
   height: 100%;
