@@ -24,7 +24,7 @@
     
     <carousel
     id="thumbnails"
-    :items-to-show="4"
+    :items-to-show="2.5"
     :wrap-around="false"
     v-model="currentSlide"
     ref="carousel"
