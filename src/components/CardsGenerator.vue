@@ -8,13 +8,16 @@
     <carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
       <slide v-for="slide in 9" :key="slide">
         <div class="carousel__item">
-          <h1>
+          <div class="card-title">
             {{ title }}
-          </h1>
+          </div>
           <img :src="`images/${slide}.png`" alt="">
-          <span class="content">
+          <span class="card-capacity">
             {{ content }}
           </span>
+          <div class="card-type">
+            {{ type }}
+          </div>
         </div>
       </slide>
     </carousel>
@@ -22,11 +25,11 @@
     <carousel
     id="thumbnails"
     :items-to-show="4"
-    :wrap-around="true"
+    :wrap-around="false"
     v-model="currentSlide"
     ref="carousel"
     >
-    <slide v-for="slide in 9" :key="slide">
+    <slide v-for="slide in 3" :key="slide">
       <div class="carousel__item" @click="slideTo(slide - 1)">
         
         <img :src="`images/${slide}.png`" alt="">
@@ -36,10 +39,14 @@
   </carousel>
 </div>
 <div class="input-content-container">
-    <label for="input-content">Contenu</label>
-    <input type="text" name="content" id="input-content" v-model="content">
-  </div>
+  <label for="input-content">Contenu</label>
+  <input type="text" name="content" id="input-content" v-model="content">
+</div>
 
+<div class="input-content-container">
+  <label for="input-type">Type</label>
+  <input type="text" name="type" id="input-type" v-model="type">
+</div>  
 </template>
 
 <script setup lang="ts">
@@ -50,6 +57,7 @@ import { ref } from 'vue';
 const currentSlide = ref<number>(0);
 const title = ref<string>('');
 const content = ref<string>('');
+const type = ref<string>('');
 
 function slideTo(slide : number) {
   currentSlide.value = slide;
@@ -96,6 +104,10 @@ function slideTo(slide : number) {
   
 }
 
+label {
+  display: block;
+}
+
 .carousel__item {
   width: 100%;
   height: 100%;
@@ -108,19 +120,35 @@ function slideTo(slide : number) {
   align-items: center;
   img {
     width: 100%;
+    height: 100%;
   }
 
-  h1 {
+  .card-title {
     position: absolute;
-    top : 5px;
+    top : 70%;
+    font-family: 'georgia bold';
+    font-weight: bold;
+    color: #3e3a30;
   }
-  .content {
+
+  .card-capacity {
     position: absolute;
-    bottom : 7%;
-    height: 20%;
-    color: black;
+    top: 78%;
+    height: 14%;
+    color: #423d30;
+    font-family: 'Georgia Regular font';
+    font-size: smaller;
     max-width: 60%;
+  }
 
+  .card-type {
+    position: absolute;
+    bottom: 4%;
+    color: #d15555;
+    font-family: 'Georgia Regular font';
+    font-size: smaller;
+    text-transform: uppercase;
+    font-size: x-small;
   }
 }
 

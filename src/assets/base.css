@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "georgia bold";
+  src: url('./georgia_bold.ttf')  format('truetype')
+}
+
+@font-face {
+  font-family: "Georgia Regular font";
+  src: url('./Georgia Regular font.ttf')  format('truetype')
+}
+
+@font-face {
+  font-family: "Georgia";
+  src: url('./Georgia.ttf')  format('truetype')
+}
+
+@font-face {
+  font-family: "georgiab";
+  src: url('./georgiab.ttf')  format('truetype')
+}
+
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
